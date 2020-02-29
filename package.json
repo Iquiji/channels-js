@@ -1,8 +1,19 @@
 {
-    "name": "channels-js",
-    "version": "0.1.0",
-    "description": "A Pure JS implenation of Channels",
-    "main": "index.js",
-    "author": "Iquiji",
-    "license": "MIT"
+  "name": "channels-js",
+  "version": "0.1.0",
+  "description": "A Pure JS implenation of Channels",
+  "main": "index.js",
+  "author": "Iquiji",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iquiji/channels-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Iquiji/channels-js/issues"
+  },
+  "homepage": "https://github.com/Iquiji/channels-js#readme"
 }
