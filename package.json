@@ -2,7 +2,7 @@
   "name": "channels-js",
   "version": "0.1.0",
   "description": "A Pure JS implenation of Channels",
-  "main": "index.js",
+  "main": "source/index.js",
   "author": "Iquiji",
   "license": "MIT",
   "scripts": {
