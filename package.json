@@ -3,5 +3,6 @@
     "version": "0.1.0",
     "description": "A Pure JS implenation of Channels",
     "main": "index.js",
-    "author": "Iquiji"
+    "author": "Iquiji",
+    "license": "MIT"
 }
