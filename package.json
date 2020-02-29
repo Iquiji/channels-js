@@ -6,7 +6,7 @@
   "author": "Iquiji",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "test/test.js"
   },
   "repository": {
     "type": "git",
