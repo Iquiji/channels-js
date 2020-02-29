@@ -3,5 +3,6 @@
   "os": [
     "linux"
   ],
-  "before_script": "npm install -g mocha"
+  "before_script": "npm install -g mocha",
+  "node_js": "node"
 }
