@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/Iquiji/channels-js/issues"
   },
-  "homepage": "https://github.com/Iquiji/channels-js#readme"
+  "homepage": "https://github.com/Iquiji/channels-js#readme",
+  "keywords": ["channel","channels","stream","queue"]
 }
