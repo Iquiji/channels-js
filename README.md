@@ -15,17 +15,37 @@ Types
 Usage
 ------
 ```js
- 	let channels = reqiure("channels-js");
-  
- 	let UnBufferedChannel = new channels.UnBufferedChannel();
-  
- 	async fucntion write(){
-		await UnBufferedChannel.write(data);
- 	}
-	async function read(){
-		let data = await UnBufferedChannel.read();
-		//Do Something with Data...
-	}
-	write();
-	read();
+    let channels = reqiure("channels-js");
+    
+    let UnBufferedChannel = new channels.UnBufferedChannel();
+    
+    async fucntion write(){
+        await UnBufferedChannel.write(data);
+    }
+    async function read(){
+        let data = await UnBufferedChannel.read();
+        //Do Something with Data...
+    }
+    write();
+    read();
+```
+
+More Examples
+------
+```js
+    let channels = reqiure("channels-js");
+    
+    let BufferedChannel = new channels.BufferedChannel(10);
+    
+    async function write(){
+        while(true){
+            await BufferedChannel.write(data); // Blocks only after internal Buffer is fulf
+        }
+    }
+    async function read(){
+        let data = await UnBufferedChannel.read();
+        //Do Something with Data...
+    }
+    write();
+    read();
 ```
