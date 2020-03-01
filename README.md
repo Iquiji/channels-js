@@ -31,7 +31,18 @@ Usage
     write();
     read();
 ```
-
+Alternate Way to read until nothing wants to write
+-----
+channels-js now supports Async Iterators[ for await (... of ...) ]
+```js
+    let channel = channels.[Any of the 3 Types]();
+    
+    async function readAllData(){
+        for await(data of channel){
+            // Do Something with data ...
+        }
+    }
+```
 More Examples
 ------
 ```js
