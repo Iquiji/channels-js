@@ -11,6 +11,7 @@ Types
 ```js 
 	* UnBufferedChannel()
 	* BufferedChannel(Buffersize) // Needs Buffersize in constructor
+	* BoundlessChannel() // Unlimited Buffersize | never blocks write
 ```
 
 Usage
