@@ -2,6 +2,7 @@
 A Pure JS implentation of channels with async/await
 ------
 [![Build Status](https://travis-ci.org/Iquiji/channels-js.svg?branch=master)](https://travis-ci.org/Iquiji/channels-js)
+![npm](https://img.shields.io/npm/dw/channels-js)
 
 Usage
 ------
