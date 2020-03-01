@@ -29,7 +29,6 @@ class UnBufferedChannel {
     }
 }
 exports.UnBufferedChannel = UnBufferedChannel;
-// TODO: BoundlessChannel
 
 class BufferedChannel {
     constructor(Bufferlength){
