@@ -22,11 +22,17 @@ let BufferedTestChannel = new channels.BufferedChannel(20);
 async function test_write_buffered(){
     await BufferedTestChannel.write("Test_Data");
     await BufferedTestChannel.write([0,5,4,2]);
+    for (let i = 100; i > 0; i--) {
+        await BufferedTestChannel.write(i);
+    }
 }
 
 async function test_read_buffered(){
     assert.deepStrictEqual(await BufferedTestChannel.read(),"Test_Data");
     assert.deepStrictEqual(await BufferedTestChannel.read(),[0,5,4,2]);
+    for (let i = 100; i > 0; i--) {
+        assert.deepStrictEqual(await BufferedTestChannel.read(),i);
+    }
 }
 
 function test_buffered(){
