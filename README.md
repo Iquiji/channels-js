@@ -5,6 +5,13 @@ A Pure JS implentation of channels with async/await
 ![npm](https://img.shields.io/npm/dw/channels-js)
 ![NPM](https://img.shields.io/npm/l/channels-js)
 
+Types
+------
+```js 
+	* UnBufferedChannel()
+	* BufferedChannel(Buffersize) // Needs Buffersize in constructor
+```
+
 Usage
 ------
 ```js
