@@ -8,8 +8,8 @@ async function test_write(){
 }
 
 async function test_read(){
-    assert.strictEqual(await UnBufferedTestChannel.read(),"Test_Data");
-    assert.strictEqual(await UnBufferedTestChannel.read(),[0,5,4,2]);
+    assert.deepStrictEqual(await UnBufferedTestChannel.read(),"Test_Data");
+    assert.deepStrictEqual(await UnBufferedTestChannel.read(),[0,5,4,2]);
 }
 
 function test(){
@@ -25,8 +25,8 @@ async function test_write_buffered(){
 }
 
 async function test_read_buffered(){
-    assert.strictEqual(await BufferedTestChannel.read(),"Test_Data");
-    assert.strictEqual(await BufferedTestChannel.read(),[0,5,4,2]);
+    assert.deepStrictEqual(await BufferedTestChannel.read(),"Test_Data");
+    assert.deepStrictEqual(await BufferedTestChannel.read(),[0,5,4,2]);
 }
 
 function test_buffered(){
