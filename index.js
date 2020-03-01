@@ -29,7 +29,7 @@ class UnBufferedChannel {
     }
 }
 exports.UnBufferedChannel = UnBufferedChannel;
-// TODO: BoundlessChannel , BufferedChannel
+// TODO: BoundlessChannel
 
 class BufferedChannel {
     constructor(Bufferlength){
@@ -79,3 +79,33 @@ class BufferedChannel {
     }
 }
 exports.BufferedChannel = BufferedChannel;
+
+class BoundlessChannel {
+    constructor(Bufferlength){
+        this.Bufferlength = Bufferlength;
+        this._buffer = [];
+        //this._writeQueue = []; // To be Written
+        this._readQueue = []; // To Br Read
+    }
+    write(data){
+        if (this._readQueue.length == 0){
+            this._buffer.push(data);
+            return Promise.resolve();
+        }else{
+            let read = this._readQueue.shift();
+            read(data);
+            return Promise.resolve();
+        }
+    }
+    read(){
+            if (this._buffer.length != 0){
+                return Promise.resolve(this._buffer.shift());
+            }else{
+                let p = new Promise((resolve,reject) => {
+                    this._readQueue.push(resolve);
+                })
+                return p;
+            }
+    }
+}
+exports.BoundlessChannel = BoundlessChannel;
