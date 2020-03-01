@@ -41,3 +41,21 @@ function test_buffered(){
 }
 
 test_buffered();
+
+let BufferedChannelIteratorTest = new channels.BufferedChannel(10);
+async function test_async_iterator(){
+    let times = 0;
+    let random = Math.round(Math.random()*1000);
+    for (let i = 0; i < random; i++) {
+        await BufferedChannelIteratorTest.write(5);
+        times++
+    }
+
+    for await(data of await BufferedChannelIteratorTest){
+        //console.log(data);
+        assert.strictEqual(data,5);
+    }
+    console.log(random,times);
+    assert.strictEqual(times,random);
+}
+test_async_iterator();

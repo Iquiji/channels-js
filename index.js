@@ -76,6 +76,17 @@ class BufferedChannel {
             return Promise.resolve(data);
         }
     }
+    [Symbol.asyncIterator]() {
+        return {
+            next: async () => {
+                if (this._buffer.length != 0) {
+                    return Promise.resolve({value: await this.read(), done: false});
+                }else{
+                    return Promise.resolve({done: true});
+              }
+            }
+          }
+    }
 }
 exports.BufferedChannel = BufferedChannel;
 
