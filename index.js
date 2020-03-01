@@ -80,8 +80,7 @@ class BufferedChannel {
 exports.BufferedChannel = BufferedChannel;
 
 class BoundlessChannel {
-    constructor(Bufferlength){
-        this.Bufferlength = Bufferlength;
+    constructor(){
         this._buffer = [];
         //this._writeQueue = []; // To be Written
         this._readQueue = []; // To Br Read
