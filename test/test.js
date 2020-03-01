@@ -16,3 +16,22 @@ function test(){
     test_write();
     test_read();
 }
+test();
+
+let BufferedTestChannel = new channels.BufferedChannel(20);
+async function test_write_buffered(){
+    await BufferedTestChannel.write("Test_Data");
+    await BufferedTestChannel.write([0,5,4,2]);
+}
+
+async function test_read_buffered(){
+    assert.strictEqual(await BufferedTestChannel.read(),"Test_data");
+    assert.strictEqual(await BufferedTestChannel.read(),[0,5,4,2]);
+}
+
+function test_buffered(){
+    test_write_buffered();
+    test_read_buffered();
+}
+
+test_buffered();
