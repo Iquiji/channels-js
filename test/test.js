@@ -31,7 +31,7 @@ async function test_read_buffered(){
     assert.deepStrictEqual(await BufferedTestChannel.read(),"Test_Data");
     assert.deepStrictEqual(await BufferedTestChannel.read(),[0,5,4,2]);
     for (let i = 100; i > 0; i--) {
-        assert.deepStrictEqual(await BufferedTestChannel.read(),i);
+        assert.strictEqual(await BufferedTestChannel.read(),i);
     }
 }
 
