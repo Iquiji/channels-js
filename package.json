@@ -1,6 +1,6 @@
 {
   "name": "channels-js",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A Pure JS implenation of Channels",
   "main": "source/index.js",
   "author": "Iquiji",
