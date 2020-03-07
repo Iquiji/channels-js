@@ -1,5 +1,5 @@
 # channels-js
-A Pure JS implentation of channels with async/await
+A Pure JS implentation of channels with async/await. Similar to Go Channels or Rust Futures Channels
 ------
 [![Build Status](https://travis-ci.org/Iquiji/channels-js.svg?branch=master)](https://travis-ci.org/Iquiji/channels-js)
 ![npm](https://img.shields.io/npm/dw/channels-js)
@@ -23,6 +23,8 @@ Usage
     
     async fucntion write(){
         await UnBufferedChannel.write(data);
+        // After writting close so nothing can write anymore
+        UnBufferedChannel.close();
     }
     async function read(){
         let data = await UnBufferedChannel.read();
@@ -31,7 +33,7 @@ Usage
     write();
     read();
 ```
-Alternate Way to read until nothing wants to write
+Alternate Way to read until closed
 -----
 channels-js now supports Async Iterators[ for await (... of ...) ]
 ```js

@@ -1,24 +1,33 @@
+exports.channelClosed = new Error("Channel closed!");
+
 class UnBufferedChannel {
     constructor(){
         this._writeQueue = []; // To be Written
         this._readQueue = []; // To Br Read
+        this._closed = false;
     }
     write(data){
+        if (this._closed) {
+            throw exports.channelClosed;
+        }
         if (this._readQueue.length == 0){
             let p = new Promise((resolve,reject) => {
                 this._writeQueue.push([resolve,data]);
             });
             return p;
         }else{
-            let read = this._readQueue.shift();
+            let [read,reject] = this._readQueue.shift();
             read(data);
             return Promise.resolve();
         }
     }
     read(){
         if (this._writeQueue.length == 0){
+            if (this._closed){
+                throw exports.channelClosed;
+            }
             let p = new Promise((resolve,reject) => {
-                this._readQueue.push(resolve);
+                this._readQueue.push([resolve,reject]);
             })
             return p;
         }else{
@@ -28,12 +37,15 @@ class UnBufferedChannel {
         }
     }
     close(){
-        
+        this._closed = true;
+        this._readQueue.forEach(([resolve,reject]) =>{
+            reject();
+        });
     }
     [Symbol.asyncIterator]() {
         return {
             next: async () => {
-                if (this._writeQueue.length != 0) {
+                if (this._writeQueue.length != 0 || !this._closed) {
                     return Promise.resolve({value: await this.read(), done: false});
                 }else{
                     return Promise.resolve({done: true});
