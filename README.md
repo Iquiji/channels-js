@@ -17,7 +17,7 @@ Types
 Usage
 ------
 ```js
-    let channels = reqiure("channels-js");
+    let channels = require("channels-js");
     
     let UnBufferedChannel = new channels.UnBufferedChannel();
     
@@ -46,7 +46,7 @@ channels-js now supports Async Iterators[ for await (... of ...) ]
 More Examples
 ------
 ```js
-    let channels = reqiure("channels-js");
+    let channels = require("channels-js");
     
     let BufferedChannel = new channels.BufferedChannel(10);
     
